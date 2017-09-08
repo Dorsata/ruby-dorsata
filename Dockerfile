@@ -7,19 +7,15 @@ MAINTAINER Phillip Robertson <phil@dorsata.com>
 RUN yum-config-manager --enable cr && yum -y update
 
 RUN yum -y update && yum -y groupinstall 'Development Tools' && yum -y install \
+    wget \
     libcurl \
     zlib-devel \
     openssl \
     openssl-devel
 
-RUN mkdir -p /usr/src/autoconf \
-    && curl -SL "http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz " \
-    | tar -xC /usr/src/autoconf \
-    && cd /usr/src/autoconf/autoconf-2.69 \
-    && ./configure \
-    && make \
-    && make install \
-    && rm -r /usr/src/autoconf
+RUN wget http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.xz && \
+    tar xf autoconf-2.69.tar.xz && cd autoconf-2.69 && \
+    ./configure && make && make install && cd .. && rm -rf autoconf-2.69*
 
 ENV RUBY_MAJOR 2.3
 ENV RUBY_VERSION 2.3.0
