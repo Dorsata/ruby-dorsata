@@ -4,6 +4,8 @@ MAINTAINER Phillip Robertson <phil@dorsata.com>
 
 #install ruby
 
+RUN yum-config-manager --enable cr && yum -y update
+
 RUN yum -y update && yum -y groupinstall 'Development Tools' && yum -y install \
     libcurl \
     zlib-devel \
