@@ -14,7 +14,7 @@ RUN yum -y update && yum -y groupinstall 'Development Tools' && yum -y install \
 
 RUN mkdir -p /usr/src/autoconf \
     && curl -SL "http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz " \
-    | tar -xzC /usr/src/autoconf \
+    | tar -xC /usr/src/autoconf \
     && cd /usr/src/autoconf/autoconf-2.69 \
     && ./configure \
     && make \
