@@ -17,8 +17,8 @@ RUN wget http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.xz && \
     tar xf autoconf-2.69.tar.xz && cd autoconf-2.69 && \
     ./configure && make && make install && cd .. && rm -rf autoconf-2.69*
 
-ENV RUBY_MAJOR 2.3
-ENV RUBY_VERSION 2.3.0
+ENV RUBY_MAJOR 2.4
+ENV RUBY_VERSION 2.4.3
 
 # some of ruby's build scripts are written in ruby
 # we purge this later to make sure our final image uses what we just built
